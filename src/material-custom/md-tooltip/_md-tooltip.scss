@@ -1,0 +1,43 @@
+@import "~@bexio/design/mixins/mixins";
+
+// tooltip
+@import "md-tooltip.placeholder";
+
+body md-tooltip-component .mat-tooltip,
+body .mat-tooltip {
+    @include mix-shadow(4, null);
+    // sass-lint:disable no-important
+    position: relative;
+    border-radius: $tooltip-border-radius !important;
+    background-color: $tooltip-bgr;
+    padding: $tooltip-padding !important;
+    overflow: visible !important;
+    text-align: center;
+    font-family: $tooltip-font-family !important;
+    font-size: $tooltip-font-size !important;
+    font-weight: $tooltip-font-weight;
+
+    &::after {
+        display: block;
+        position: absolute;
+        width: 0;
+        height: 0;
+        content: "";
+    }
+
+    &[mdtooltipposition="below"] {
+        @include bx-tooltip-position(bottom);
+    }
+
+    &[mdtooltipposition="above"] {
+        @include bx-tooltip-position(top);
+    }
+
+    &[mdtooltipposition="after"] {
+        @include bx-tooltip-position(right);
+    }
+
+    &[mdtooltipposition="before"] {
+        @include bx-tooltip-position(left);
+    }
+}

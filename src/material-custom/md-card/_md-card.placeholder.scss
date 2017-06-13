@@ -1,0 +1,62 @@
+@import "~@bexio/design/variables/variables";
+
+// placeholder card
+
+$card-base-color: $color-character-primary-light;
+$card-base-padding: $base-padding;
+$card-padding: 1.6rem $card-base-padding $card-base-padding;
+$card-margin: $base-margin;
+$card-bgr-color: $color-card;
+$card-radius: $base-radius-card;
+$card-nav-margin: -$card-base-padding -$card-base-padding $card-base-padding -$card-base-padding;
+$card-no-margin: 2 * $card-base-padding;
+$card-footer-color: $color-character-primary-light;
+
+%md-card-nav-pos {
+    margin: $card-nav-margin;
+}
+
+%md-card-align {
+    &[align="left"] {
+        text-align: left;
+    }
+
+    &[align="center"] {
+        text-align: center;
+    }
+
+    &[align="right"] {
+        text-align: right;
+    }
+}
+
+%md-card-actions {
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-right: 0;
+    padding-left: 0;
+
+    &.mat-card-actions {
+        display: flex;
+    }
+}
+
+%md-card-footer {
+    @extend %md-card-align;
+    display: block;
+    position: relative;
+    right: inherit;
+    left: inherit;
+    margin-top: $base-padding;
+    margin-right: -$base-padding;
+    margin-bottom: -$base-padding;
+    margin-left: -$base-padding;
+    border-radius: 0 0 $card-radius $card-radius;
+    padding: $card-padding;
+    padding-bottom: 0;
+    width: calc(100% + #{$card-no-margin});
+    overflow: hidden;
+    color: $card-footer-color;
+
+}

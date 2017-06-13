@@ -1,0 +1,14 @@
+{
+    "name": "@bexio/material-custom",
+    "version": "0.0.3",
+    "description": "Bexio material design customised",
+    "author": "bexio AG <npm@bexio.com> (https://www.bexio.com)",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rokie83/material-custom"
+    },
+    "dependencies": {
+        "@bexio/design": "^0.0.7"
+    }
+}

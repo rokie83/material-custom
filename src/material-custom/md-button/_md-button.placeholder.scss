@@ -1,0 +1,255 @@
+@import "~@bexio/design/variables/variables";
+@import "~@bexio/design/placeholders/placeholders";
+
+$btn-primary-bgr: $color-button-primary-bgr;
+$btn-secondary-bgr: $color-button-secondary-bgr;
+$btn-special-bgr: $color-button-special-bgr;
+$btn-trans-bgr: $color-button-trans-bgr;
+$btn-primary-color: $color-button-primary-color;
+$btn-secondary-color: $color-button-secondary-color;
+$btn-special-color: $color-button-special-color;
+$btn-trans-color: $color-button-trans-color;
+$btn-trans-disabled-color: $color-character-disabled-light;
+
+// button
+$btn-radius: $base-radius-card;
+$btn-padding: 0.5rem 1.6rem;
+$btn-margin: 0;
+$btn-line-height: 21px;
+$btn-min-width: 0;
+$btn-font-family: $typo-font-base-family;
+$btn-font-size: $typo-font-base-size;
+$btn-font-weight: $typo-font-base-weight;
+$btn-min-height: 3.2rem;
+$btn-shadow: none;
+
+// button status
+$btn-status-hover: 3%;
+$btn-status-focus: 8%;
+$btn-status-active: 3%;
+
+// icon button
+$btn-icon-padding: 0;
+$btn-icon-color: $color-character-primary-light;
+$btn-icon-color-disabled: $color-button-icon-disabled;
+$btn-icon-light-color: $color-character-primary-dark;
+$btn-icon-light-color-disabled: $color-character-disabled-dark;
+$btn-icon-bgr: $color-button-icon-bgr;
+$btn-icon-bgr-hover: $color-button-icon-bgr-hover;
+$btn-base-icon-size: 2.3rem;
+$btn-base-icon-line-height: $btn-base-icon-size;
+
+// button transitions
+$btn-disable-transition: all 200ms linear;
+
+// button colors
+$btn-disable-color: rgba(0, 0, 0, 0.1);
+
+// flat
+%button-trans {
+    @extend %button;
+    box-shadow: none;
+    background-color: $btn-trans-bgr;
+    color: $btn-trans-color;
+
+    &[disabled],
+    &[disabled="disabled"] {
+        background-color: $btn-trans-bgr;
+        cursor: default;
+        color: $btn-trans-disabled-color;
+    }
+}
+
+// raised disabled
+%button-disable {
+    transition: $btn-disable-transition;
+
+    &[disabled="disabled"]:not([data-status="progress"]),
+    &[disabled]:not([data-status="progress"]) {
+        box-shadow: none;
+        background-color: $btn-disable-color;
+        color: $btn-trans-disabled-color;
+
+        pointer-events: none;
+
+        span {
+            color: $btn-trans-disabled-color;
+        }
+    }
+
+    &[disabled][data-status="progress"],
+    &[disabled="disabled"][data-status="progress"] {
+        box-shadow: none;
+        background-color: $btn-disable-color;
+        color: $btn-trans-disabled-color;
+
+        pointer-events: none;
+
+        md-progress-spinner {
+            path {
+                stroke: $btn-primary-bgr;
+            }
+        }
+    }
+}
+
+// button shadow
+@mixin button-status($color, $text-color) {
+    // sass-lint:disable variable-for-property
+    &:hover,
+    &[data-status="progress"]:hover {
+        @include mix-shadow(1, null);
+        background-color: darken($color, $btn-status-hover);
+    }
+
+    &:focus,
+    &[data-status="progress"]:focus {
+        @include mix-shadow(1, null);
+        background-color: darken($color, $btn-status-focus);
+    }
+
+    &:active,
+    &[data-status="progress"]:active {
+        @include mix-shadow(1, null);
+        background-color: darken($color, $btn-status-active);
+    }
+
+    &[data-status="progress"]:hover,
+    &[data-status="progress"]:focus,
+    &[data-status="progress"]:active {
+        @include mix-shadow(1, null);
+        background-color: $color;
+    }
+
+    &[data-status="progress"] {
+        pointer-events: none;
+
+        .mat-button-wrapper {
+            span {
+                opacity: 0;
+                height: 0;
+            }
+        }
+
+        md-progress-spinner {
+            display: inline-block;
+            position: absolute;
+            left: calc(50% - 0.9rem);
+            width: 1.9rem;
+            height: 1.9rem;
+
+            path {
+                position: absolute;
+
+                stroke: $text-color;
+            }
+        }
+    }
+
+    &:not([data-status="progress"]) {
+        display: inline-block;
+        width: auto;
+
+        md-progress-spinner {
+            display: none;
+        }
+    }
+}
+
+// button
+%button {
+    display: inline-block;
+    position: relative;
+    align-items: center;
+    transition: none;
+    margin: $btn-margin;
+    outline: none;
+    border: none;
+    border-radius: $btn-radius;
+    box-shadow: $btn-shadow;
+    background: none;
+    cursor: pointer;
+    padding: $btn-padding;
+    min-width: $btn-min-width;
+    min-height: $btn-min-height;
+    overflow: hidden;
+    text-align: center;
+    text-transform: none;
+    // sass-lint:disable no-important
+    text-decoration: none !important;
+    line-height: $btn-line-height;
+    white-space: nowrap;
+    font-family: $btn-font-family;
+    font-size: $btn-font-size;
+    font-weight: $btn-font-weight;
+    font-style: inherit;
+
+    box-sizing: border-box;
+    user-select: none;
+    font-variant: inherit;
+
+    &:focus {
+        outline: none;
+        box-shadow: $btn-shadow;
+    }
+
+    &:hover {
+        box-shadow: $btn-shadow;
+        text-decoration: none;
+    }
+
+    &:active {
+        box-shadow: $btn-shadow;
+    }
+
+    &.mat-cornered {
+        border-radius: 0;
+    }
+
+    &.mat-icon {
+        background: none;
+        padding: $btn-icon-padding;
+    }
+}
+
+// button icon small
+%button-icon-small {
+    margin-top: 0.3rem;
+    margin-right: -1.1rem;
+    margin-left: -1.2rem;
+    width: $btn-min-height - 0.6rem;
+    height: $btn-min-height - 0.6rem;
+}
+
+// button icon disabled
+%button-icon-disabled {
+    &[disabled],
+    &[disabled="disabled"] {
+        background-color: $btn-trans-bgr;
+        cursor: default;
+        color: $btn-icon-color-disabled;
+    }
+}
+
+// button icon
+%button-icon {
+    @extend %button;
+    border-radius: 50%;
+    padding: $btn-icon-padding;
+    width: $btn-min-height;
+    height: $btn-min-height;
+    min-height: inherit;
+    line-height: 0;
+    color: $color-character-secondary-light;
+
+    [fontset="fa"] {
+        transition: background-color 0.2s ease;
+        background-color: $btn-icon-bgr;
+        line-height: $btn-base-icon-line-height;
+        font-size: $btn-base-icon-size;
+    }
+
+    &:hover .mat-button-focus-overlay {
+        opacity: 1;
+    }
+}

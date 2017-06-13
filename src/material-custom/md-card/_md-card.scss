@@ -1,0 +1,39 @@
+@import "~@bexio/design/placeholders/placeholders";
+@import "~@bexio/design/mixins/mixins";
+
+// md-card custom
+@import "md-card.placeholder";
+
+md-card {
+    &.mat-card {
+        @extend %body-regular;
+        @include mix-shadow(1, 1);
+        margin-bottom: $card-margin;
+        border-radius: $card-radius;
+        background-color: $card-bgr-color;
+        padding: $card-padding;
+        letter-spacing: 0;
+        color: $card-base-color;
+
+        &:first-child {
+            .mat-card-nav {
+                @extend %md-card-nav-pos;
+            }
+        }
+    }
+}
+
+.mat-card-nav {
+    @extend %md-card-nav-pos;
+    margin-top: 0;
+}
+
+body {
+    .mat-card-actions {
+        @extend %md-card-actions;
+    }
+
+    .mat-card-footer {
+        @extend %md-card-footer;
+    }
+}

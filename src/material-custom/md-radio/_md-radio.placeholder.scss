@@ -1,0 +1,116 @@
+@import "~@bexio/design/variables/variables";
+
+// placeholder radio
+
+$radio-label-title-color: $color-character-primary-light;
+$radio-label-text-color: $color-character-secondary-light;
+$radio-label-disabled-color: $color-character-disabled-light;
+$radio-label-line-height: 1.2;
+$radio-color-inner-circle: $color-button-primary-bgr;
+$radio-color-outer-circle: $color-character-secondary-light;
+$radio-color-inner-circle-active: $color-button-primary-bgr;
+$radio-color-outer-circle-active: $color-button-primary-bgr;
+$radio-color-inner-circle-disabled: $color-character-disabled-light;
+$radio-color-outer-circle-disabled: $color-character-disabled-light;
+$radio-color-ripple: $color-radio-ripple;
+$radio-color-ripple-disabled: $color-radio-ripple-disabled;
+$ripple-size: 1.6rem;
+$radio-size-circle: 1.6rem;
+
+%radio-circle-base {
+    .mat-radio-container {
+        top: 0.4rem;
+        width: $ripple-size;
+        height: $radio-size-circle;
+    }
+
+    .mat-radio-outer-circle,
+    .mat-radio-inner-circle {
+        width: $radio-size-circle;
+        height: $radio-size-circle;
+    }
+
+    .mat-radio-outer-circle {
+        border-color: $radio-color-outer-circle;
+    }
+
+    .mat-radio-inner-circle {
+        border-color: $radio-color-inner-circle;
+    }
+
+    .mat-radio-ripple {
+        top: -($ripple-size / 2);
+        right: ($ripple-size / 2);
+        bottom: -($ripple-size / 2);
+        left: ($ripple-size / 2);
+
+        .mat-ripple-element {
+            border-radius: 50%;
+            background-color: $radio-color-ripple;
+        }
+
+        &[md-ripple] {
+            overflow: visible;
+        }
+    }
+}
+
+%radio-circle-active {
+    .mat-radio-outer-circle {
+        border-color: $radio-color-outer-circle-active;
+    }
+
+    .mat-radio-inner-circle {
+        background-color: $radio-color-inner-circle-active;
+    }
+}
+
+%radio-label-text {
+    .mat-radio-label-content {
+        width: 100%;
+        font-family: $base-font-family;
+        pointer-events: none;
+
+        span {
+            display: block;
+            padding-right: 0.8rem;
+            padding-left: 0.8rem;
+            width: calc(100% - 0.8rem);
+            line-height: $radio-label-line-height;
+            white-space: normal;
+            color: $radio-label-text-color;
+
+            &:first-child {
+                color: $radio-label-title-color;
+            }
+
+            &:not(:first-child) {
+                margin-top: 0.5rem;
+            }
+        }
+    }
+}
+
+%radio-disabled {
+    .mat-radio-disabled {
+        .mat-radio-label .mat-radio-label-content span {
+            color: $radio-label-disabled-color;
+        }
+
+        .mat-radio-outer-circle {
+            border-color: $radio-color-outer-circle-disabled;
+        }
+
+        .mat-radio-inner-circle {
+            background-color: $radio-color-inner-circle-disabled;
+        }
+    }
+}
+
+%radio-ripple {
+    .mat-ripple-element {
+        opacity: 1;
+        border-radius: 50%;
+        overflow: visible;
+    }
+}

@@ -1,0 +1,40 @@
+@import "~@bexio/design/placeholders/placeholders";
+
+// placeholder tooltip
+
+$tooltip-border-radius: 2px;
+$tooltip-bgr: rgb(0, 0, 0);
+$tooltip-size: 8px;
+$tooltip-caret-position: $tooltip-size + $tooltip-size;
+$tooltip-padding: 6px 24px;
+$tooltip-font-family: $typo-font-base-family;
+$tooltip-font-size: $typo-font-size-caption;
+$tooltip-font-weight: $typo-font-base-weight;
+
+@mixin bx-tooltip-position($tooltip-caret-direction) {
+    &::after {
+        top: inherit;
+        right: inherit;
+        bottom: inherit;
+        left: inherit;
+        border: 8px solid transparent;
+
+        border-#{$tooltip-caret-direction}-color: $tooltip-bgr;
+        @if $tooltip-caret-direction == bottom {
+            top: -$tooltip-caret-position;
+            left: calc(50% - #{$tooltip-size});
+        }
+        @if $tooltip-caret-direction == top {
+            bottom: -$tooltip-caret-position;
+            left: calc(50% - #{$tooltip-size});
+        }
+        @if $tooltip-caret-direction == right {
+            top: calc(50% - #{$tooltip-size});
+            left: -$tooltip-caret-position;
+        }
+        @if $tooltip-caret-direction == left {
+            top: calc(50% - #{$tooltip-size});
+            right: -$tooltip-caret-position;
+        }
+    }
+}

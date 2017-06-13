@@ -1,0 +1,19 @@
+@import "~@bexio/design/mixins/mixins";
+@import "~@bexio/design/placeholders/placeholders";
+
+@import "md-menu.base";
+
+.mat-menu-panel {
+    @extend %mat-menu-base;
+    @extend %context-menu;
+}
+
+.template-selector {
+    cursor: pointer;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+
+    span {
+        @extend %typography-dark-secondary;
+    }
+}

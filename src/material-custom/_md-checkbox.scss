@@ -1,0 +1,70 @@
+@import "~@bexio/design/variables/variables";
+@import "~@bexio/design/placeholders/placeholders";
+
+// md checkbox [not styled yet]
+
+$checkbox-inner-container-margin: 0;
+$checkbox-size: 16px;
+$checkbox-ripple-size: 24px;
+$checkbox-ripple-adjustment-size: 4px;
+
+.mat-checkbox {
+    .mat-ripple-element {
+        // sass-lint:disable no-important
+        background-color: $color-radio-ripple !important;
+    }
+
+    .mat-checkbox-ripple {
+        top: -4px;
+        left: -4px;
+        border-radius: 4px;
+        width: $checkbox-ripple-size;
+        height: $checkbox-ripple-size;
+    }
+}
+
+.mat-checkbox-label {
+
+    @extend %typography-dark-primary;
+
+    small {
+        @extend %typography-dark-disabled;
+        display: block;
+        margin-top: -8px;
+    }
+}
+
+.mat-checkbox-layout {
+    .mat-checkbox-inner-container {
+        margin-top: 4px;
+        margin-left: 0;
+    }
+
+    .mat-checkbox-background,
+    .mat-checkbox-frame {
+        width: $checkbox-size;
+        height: $checkbox-size;
+    }
+}
+
+.mat-checkbox-checked {
+    &.mat-accent .mat-checkbox-background {
+        background-color: $color-secondary-blue-light;
+    }
+}
+
+.mat-checkbox-disabled {
+    .mat-checkbox-layout {
+        cursor: default;
+    }
+
+    &.mat-checkbox-indeterminate {
+        .mat-checkbox-background {
+            background-color: $color-character-disabled-light;
+        }
+    }
+
+    .mat-checkbox-label {
+        color: $color-character-disabled-light;
+    }
+}

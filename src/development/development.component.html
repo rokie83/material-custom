@@ -1,0 +1,191 @@
+<div class="wrapper">
+    <h1>Bexio Code Examples</h1>
+    <md-card>
+        <h2>Buttons</h2>
+        <h3>Regular Button</h3>
+
+        <button md-raised-button color="primary">
+            <span>Primary</span>
+        </button>
+
+        <h3>Flat Button</h3>
+        <button md-button color="primary">
+            <span>Primary</span>
+        </button>
+
+        <h3>Icon Button</h3>
+        <button type="button" md-icon-button
+                color="primary"
+                class="icon-button-delete">
+            <md-icon fontSet="fa" fontIcon="fa-times"></md-icon>
+        </button>
+
+        <h3>Progress Buttons</h3>
+        <button md-raised-button color="primary" data-status="progress">
+            <span>Primary</span>
+            <md-progress-spinner mode="indeterminate"></md-progress-spinner>
+        </button>
+
+        <button md-raised-button color="primary" data-status="progress" disabled>
+            <span>Primary</span>
+            <md-progress-spinner mode="indeterminate"></md-progress-spinner>
+        </button>
+
+        <h3>Colored Buttons</h3>
+        <button md-raised-button color="primary">
+            <span>Primary</span>
+        </button>
+
+        <button md-button color="secondary">
+            <span>Secondary</span>
+        </button>
+
+        <button type="button" md-icon-button
+                color="special"
+                class="icon-button-delete">
+            <md-icon fontSet="fa" fontIcon="fa-times"></md-icon>
+        </button>
+
+        <h3>Disabled Buttons</h3>
+        <button md-raised-button color="primary" disabled>
+            <span>Primary</span>
+        </button>
+
+        <button md-button color="primary" disabled>
+            <span>Primary</span>
+        </button>
+
+        <button type="button" md-icon-button
+                color="primary"
+                class="icon-button-delete" disabled>
+            <md-icon fontSet="fa" fontIcon="fa-times"></md-icon>
+        </button>
+    </md-card>
+
+    <md-card>
+        <h2>Menus</h2>
+        <h3>Simple Menu</h3>
+
+        <button type="button" tabindex="-1" md-icon-button [mdMenuTriggerFor]="simpleMenu">
+            <!-- For the use of custom icons at Bexio until material guys will document how to use md-icon with custom src -->
+            <img src="assets/icons/contextmenu-icon.svg" alt="menu-trigger">
+        </button>
+        <md-menu #simpleMenu="mdMenu" [overlapTrigger]="false">
+            <button md-menu-item>
+                <span>Simple Menu Item</span>
+            </button>
+            <button md-menu-item disabled>
+                <span>Disabled Menu Item</span>
+            </button>
+            <button md-menu-item>
+                <span>Simple Menu Item with a very very long text</span>
+            </button>
+        </md-menu>
+
+        <h3>Contextual Menu</h3>
+
+        <button type="button" tabindex="-1" md-icon-button [mdMenuTriggerFor]="contextualMenu">
+            <!-- For the use of custom icons at Bexio until material guys will document how to use md-icon with custom src -->
+            <img src="assets/icons/contextmenu-icon.svg" alt="menu-trigger">
+        </button>
+        <md-menu #contextualMenu="mdMenu" class="context-menu-panel" [overlapTrigger]="false">
+            <div class="context-menu-item">
+                <div class="main-action">
+                    <button md-menu-item>
+                        Simple contextual Menu Item
+                    </button>
+                </div>
+                <div class="sub-action">
+                    <button md-icon-button>
+                        <md-icon fontSet="fa" fontIcon="fa-trash"></md-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="context-menu-item">
+                <div class="main-action">
+                    <button md-menu-item disabled>
+                        Disabled contextual Menu Item
+                    </button>
+                </div>
+                <div class="sub-action">
+                    <button md-icon-button disabled>
+                        <md-icon fontSet="fa" fontIcon="fa-trash"></md-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="context-menu-item">
+                <div class="main-action">
+                    <button md-menu-item>
+                        Contextual Menu Item with a very very long text
+                    </button>
+                </div>
+                <div class="sub-action">
+                    <button md-icon-button>
+                        <md-icon fontSet="fa" fontIcon="fa-trash"></md-icon>
+                    </button>
+                </div>
+            </div>
+        </md-menu>
+    </md-card>
+
+    <md-card>
+        <h2>Card</h2>
+        <md-card-header>
+            <md-card-title><h3>Card header section</h3></md-card-title>
+            <md-card-subtitle>Card subheader section</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+            <p>
+                Card content section
+            </p>
+        </md-card-content>
+        <md-card-actions>
+            <button md-button>Card action section</button>
+        </md-card-actions>
+        <md-card-footer>
+            Card Footer section
+        </md-card-footer>
+    </md-card>
+
+    <md-card>
+        <h2>Checkboxes</h2>
+        <h3>Regular Checkbox</h3>
+        <md-checkbox>
+            Some text
+            <small>Some additional text</small>
+        </md-checkbox>
+    </md-card>
+
+    <md-card>
+        <h2>Radios</h2>
+        <h3>Radio Group</h3>
+        <md-radio-group>
+            <md-radio-button value="0">
+                <span>Some text</span>
+                <span>Some more text</span>
+            </md-radio-button>
+            <md-radio-button value="1">
+                <span>Some text second row</span>
+                <span>Some more text second row</span>
+            </md-radio-button>
+        </md-radio-group>
+    </md-card>
+
+    <md-card>
+        <h2>Select</h2>
+        <h3>Regular Select</h3>
+        <md-select>
+            <md-option>Option 1</md-option>
+            <md-option>Option 2</md-option>
+            <md-option>Option 3</md-option>
+        </md-select>
+    </md-card>
+
+    <md-card>
+        <h2>Tooltips</h2>
+        <h3>Regular Tooltip</h3>
+        <span mdTooltip="Some content which explains something" mdTooltipPosition="after">
+        HOVER FOR TOOLTIP EXAMPLE
+    </span>
+    </md-card>
+</div>

@@ -1,0 +1,38 @@
+@import "~@bexio/design/variables/variables";
+
+@import "md-select.placeholder";
+
+// validation select placeholder
+
+$select-error-color: $color-status-border-error;
+
+%invalid-select {
+    .mat-select-trigger {
+        .mat-select-arrow,
+        .mat-select-arrow::after {
+            color: $select-error-color;
+        }
+    }
+}
+
+// validation
+%validate-select {
+    &[aria-invalid="true"]:not(:focus) {
+        @extend %invalid-select;
+        border-color: $select-error-color;
+    }
+
+    &[aria-disabled="true"] {
+        @extend %disabled-select;
+    }
+}
+
+[aria-required="true"] {
+    md-select {
+        .mat-select-trigger {
+            .mat-select-placeholder::after {
+                content: "";
+            }
+        }
+    }
+}

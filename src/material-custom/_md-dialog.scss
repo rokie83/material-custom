@@ -1,0 +1,35 @@
+@import "~@bexio/design/variables/variables";
+@import "~@bexio/design/placeholders/placeholders";
+@import "~@bexio/design/mixins/mixins";
+@import "~@bexio/design/dialog/dialog";
+
+// md-dialog custom
+
+$dialog-padding: $base-padding;
+$dialog-margin: $base-margin;
+$dialog-bgr-color: $color-card;
+$dialog-radius: $base-radius-card;
+$dialog-width: 48.0rem;
+
+body {
+    .mat-dialog-container {
+        // md-dialog (beta), there are still open issues.
+        // use only the content-containers of the dialog.scss at [style/dialog]
+        // .dialog-title
+        // .dialog-content
+        // .dialog-section -> floated container. colored background.
+        // .dialog-image   -> floated, no padding, colored background.
+        // .dialog-actions -> Wrapper for the set of actions at the bottom of a dialog. Typically contains buttons.
+
+        @extend %body-regular;
+        @extend %typography-dark-primary;
+        @extend %dialog;
+        @include mix-shadow(4, null);
+        margin-bottom: $dialog-margin;
+        border-radius: $dialog-radius;
+        background-color: $dialog-bgr-color;
+        padding: $dialog-padding;
+        max-width: $dialog-width;
+        letter-spacing: 0;
+    }
+}

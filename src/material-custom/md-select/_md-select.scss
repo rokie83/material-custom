@@ -1,0 +1,110 @@
+// select
+@import "md-select.placeholder";
+@import "menu.md-select";
+@import "validation.md-select";
+
+$select-margin: 0;
+$select-padding: 0;
+$select-arrow-font-size: 1.3rem;
+
+// base
+md-select {
+    display: inline-block;
+    margin: $select-margin;
+    padding: $select-padding;
+    min-height: $select-min-height;
+
+    &:not(.mat-select--link) {
+        @extend %input-base;
+
+        &:not([disabled]) .mat-select-trigger,
+        &:not([disabled="disabled"]) .mat-select-trigger,
+        .mat-select-trigger {
+            .mat-select-arrow,
+            .mat-select-value {
+                border: none;
+            }
+        }
+    }
+
+    &:focus {
+        outline: 0;
+
+        .mat-select-trigger .mat-select-value {
+            outline: 0;
+        }
+    }
+
+    .mat-select-trigger {
+        margin-right: 2.0rem;
+        border: none;
+        min-width: 0;
+
+        .mat-select-arrow {
+            border: none;
+            padding-left: 3.8rem;
+            width: 1.0rem;
+            height: 2.0rem;
+            color: $select-caret-color;
+
+            &::after {
+                display: inline;
+                text-rendering: auto;
+                font: normal normal normal 1.4rem/1 FontAwesome;
+                font-size: $select-arrow-font-size;
+                content: "\f0d7";
+
+                -webkit-font-smoothing: antialiased;
+            }
+        }
+
+        .mat-select-value {
+            width: 100%;
+            max-width: none;
+            overflow: hidden;
+            font-size: $select-font-size;
+        }
+
+        .mat-select-underline {
+            display: none;
+        }
+    }
+
+    &:focus:not(.mat-select-disabled) {
+        .mat-select-trigger {
+            border: none;
+
+            .mat-select-arrow {
+                color: $select-caret-color;
+            }
+        }
+    }
+
+    &[placeholder],
+    &[placeholder].mat-select-placeholder {
+        // sass-lint:disable no-important
+        color: $select-character-color !important;
+        font-size: $select-font-size;
+        font-weight: $select-font-weight;
+    }
+
+    &:not([disabled]):focus .mat-select-value,
+    &:not([disabled="disabled"]):focus .mat-select-value {
+        border: 0.1rem solid transparent;
+    }
+
+    &[disabled],
+    &[disabled="disabled"],
+    &[readonly] {
+        @extend %disabled-select;
+    }
+}
+
+.mat-select-panel {
+    @extend %select-panel;
+}
+
+// validation
+md-select:not(.mat-select--link) {
+    @extend %validate-select;
+}

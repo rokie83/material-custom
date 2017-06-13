@@ -1,0 +1,53 @@
+// select menu
+@import "~@bexio/design/variables/variables";
+@import "~@bexio/design/placeholders/placeholders";
+
+$select-menu-character-color: $color-character-primary-light;
+$select-menu-font-family: $typo-font-base-family;
+$select-menu-font-size: $typo-font-base-size;
+$select-menu-font-weight: $typo-font-base-weight;
+$select-menu-bgr: $color-select-menu-active;
+$select-menu-item-padding: 10px;
+$select-menu-item-height: 2.6rem;
+$select-menu-padding: 0.7rem 0;
+$select-menu-max-height: 11.2rem;
+$select-menu-option-h-padding: 1.6rem;
+$select-menu-option-v-padding: 0.4rem;
+$select-menu-option-padding: $select-menu-option-v-padding $select-menu-option-h-padding;
+
+%select-panel {
+    @include mix-shadow(4, null);
+
+    .mat-select-content {
+        padding: $select-menu-padding;
+
+        md-option {
+            padding: $select-menu-option-padding;
+            height: $select-menu-item-height;
+            // the following property is the menu item height
+            // the calculation of the menu placement has a fixed value
+            // in the material design javascript.
+            //
+            //     material2/src/lib/select/select.ts
+            // /** The fixed height of every option element. */
+            //     export const SELECT_OPTION_HEIGHT = 48;
+            //
+            // as long this value is
+            // not dynamic (reading the actual md-option height), we will
+            // not using the md-select component
+            // (the component is at material design side still in progress).
+            // use the autocomplete component
+            overflow: inherit;
+            line-height: $select-menu-item-height;
+            color: $select-menu-character-color;
+            font-family: $select-menu-font-family;
+            font-size: $select-menu-font-size;
+            font-weight: $select-menu-font-weight;
+
+            &:not([disabled]):focus,
+            &:not([disabled]):hover {
+                background-color: $select-menu-bgr;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@import "~@bexio/design/variables/variables";
+@import "~@bexio/design/placeholders/placeholders";
+@import "~@bexio/design/form-components/input/input.placeholder";
+
+// placeholder select
+
+$select-character-color: $color-character-primary-light;
+$select-character-color-disabled: $color-character-disabled-light;
+$select-caret-color: $color-character-primary-light;
+$select-font-size: $typo-font-base-size;
+$select-font-weight: $typo-font-base-weight;
+$select-min-height: 3.0rem;
+$select-border-focus: $color-status-border-focus;
+
+%disabled-select {
+    @extend %input-disabled;
+    pointer-events: none;
+
+    .mat-select-value {
+        background: none;
+        color: $select-character-color-disabled;
+    }
+
+    .mat-select-trigger {
+        background-image: none;
+
+        .mat-select-arrow {
+            color: $select-character-color-disabled;
+        }
+    }
+}

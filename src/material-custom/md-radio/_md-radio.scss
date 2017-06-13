@@ -1,0 +1,18 @@
+@import "~@bexio/design/placeholders/placeholders";
+
+// radio
+@import "md-radio.placeholder";
+
+md-radio-group {
+    @extend %radio-disabled;
+}
+
+md-radio-button {
+    @extend %noselect;
+    @extend %radio-circle-base;
+    @extend %radio-label-text;
+
+    &.mat-radio-checked {
+        @extend %radio-circle-active;
+    }
+}

@@ -1,0 +1,55 @@
+@import "~@bexio/design/variables/variables";
+
+$mat-menu-padding: 8px 19px;
+$mat-menu-item-height: 32px;
+
+%mat-menu-base {
+    border-radius: 2px;
+    // TODO: The Material team did a wrong calculation on panel max-height. This will be fixed in material 2.0.0-beta.4.
+    // sass-lint:disable no-important
+    max-height: calc(50vh - #{$mat-menu-item-height}) !important;
+
+    .mat-menu-item {
+        padding: $mat-menu-padding;
+        height: $mat-menu-item-height;
+        line-height: 16px;
+        font-family: $base-font-family;
+        font-size: $base-font-size;
+
+        &:hover:not([disabled]),
+        &:focus:not([disabled]) {
+            background: $color-select-menu-active;
+        }
+    }
+}
+
+%context-menu {
+    .context-menu-item {
+        display: flex;
+
+        &:hover:not([disabled]),
+        &:focus:not([disabled]) {
+            background: $color-select-menu-active;
+        }
+    }
+
+    .main-action {
+        width: 224px;
+
+        .mat-menu-item {
+            &:hover:not([disabled]),
+            &:focus:not([disabled]) {
+                background: none;
+            }
+        }
+    }
+
+    .sub-action {
+        padding-right: 4px;
+
+        .mat-icon {
+            line-height: 26px;
+            font-size: $base-font-size-caption;
+        }
+    }
+}

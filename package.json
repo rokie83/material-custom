@@ -1,0 +1,82 @@
+{
+    "name": "bexio-library",
+    "license": "MIT",
+    "author": "bexio AG <npm@bexio.com> (https://www.bexio.com)",
+    "contributors": [
+        {
+            "name": "Robert Kiemele",
+            "email": "robert.kiemele@bexio.com"
+        },
+        {
+            "name": "Aleksandar Arsenovic",
+            "email": "aleksandar.arsenovic@bexio.com"
+        },
+        {
+            "name": "Dimitri Friedli",
+            "email": "dimitri.friedli@bexio.com"
+        },
+        {
+            "name": "Marco Petschen",
+            "email": "marco.petschen@bexio.com"
+        }
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rokie83/material-custom"
+    },
+    "keywords": [
+        "bexio",
+        "library"
+    ],
+    "angular-cli": {},
+    "scripts": {
+        "serve": "ng serve --port 4400",
+        "build": "gulp build",
+        "patch-release": "gulp release --type=patch",
+        "minor-release": "gulp release --type=minor",
+        "major-release": "gulp release --type=major",
+        "validate": "npm run scss-lint",
+        "scss-lint": "sass-lint -c -v --max-warnings 0"
+    },
+    "dependencies": {
+        "@angular/animations": "4.1.0",
+        "@angular/common": "4.1.0",
+        "@angular/compiler": "4.1.0",
+        "@angular/forms": "4.1.0",
+        "@angular/http": "4.1.0",
+        "@angular/core": "4.1.0",
+        "@angular/material": "2.0.0-beta.3",
+        "@angular/platform-browser": "4.1.0",
+        "@angular/platform-browser-dynamic": "4.1.0",
+        "@angular/router": "4.1.0",
+        "@bexio/design": "0.0.7",
+        "core-js": "2.4.1",
+        "font-awesome": "4.7.0",
+        "hammerjs": "2.0.8",
+        "zone.js": "0.8.9"
+    },
+    "devDependencies": {
+        "@angular/cli": "1.0.1",
+        "@angular/compiler-cli": "4.1.0",
+        "@types/hammerjs": "2.0.34",
+        "@types/node": "7.0.14",
+        "codelyzer": "3.0.0",
+        "del": "2.2.2",
+        "gulp": "3.9.1",
+        "gulp-autoprefixer": "4.0.0",
+        "gulp-bump": "2.7.0",
+        "gulp-conventional-changelog": "1.1.3",
+        "gulp-git": "2.3.0",
+        "gulp-sass": "3.1.0",
+        "gulp-shell": "0.6.3",
+        "gulp-webserver": "0.9.1",
+        "jasmine-core": "2.6.1",
+        "jasmine-spec-reporter": "4.0.0",
+        "run-sequence": "1.2.2",
+        "sass-lint": "1.10.2",
+        "style-loader": "0.16.1",
+        "ts-node": "3.0.2",
+        "tslint": "5.1.0",
+        "typescript": "2.2.2"
+    }
+}

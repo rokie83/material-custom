@@ -1,0 +1,123 @@
+// button
+@import "md-button.placeholder";
+@import "~@bexio/design/mixins/mixins";
+
+$btn-font-icon-size: 13px;
+$btn-font-icon-reverse-size: 11px;
+
+// entry row icons [icon button]
+button[md-icon-button].icon-button,
+a[md-icon-button].icon-button {
+    &-switch {
+        @extend %button-icon-small;
+
+        [fontset="fa"] {
+            &.fa {
+                font-size: $btn-font-icon-reverse-size;
+            }
+        }
+    }
+
+    &-attachment {
+        @extend %button-icon-small;
+        margin-left: -0.9rem;
+
+        [fontset="fa"] {
+            &.fa {
+                font-size: $btn-font-icon-size;
+            }
+        }
+    }
+
+    &-delete {
+        @extend %button-icon-small;
+        margin-right: -0.9rem;
+        margin-left: 0;
+
+        [fontset="fa"] {
+            &.fa {
+                font-size: $btn-font-icon-size;
+            }
+        }
+    }
+}
+
+// base style icon button
+button[md-icon-button],
+a[md-icon-button] {
+    @extend %button-icon;
+
+    &.mat-primary {
+        @extend %button-icon-disabled;
+        color: $btn-primary-bgr;
+    }
+
+    &.mat-secondary,
+    &.mat-accent {
+        @extend %button-icon-disabled;
+        color: $btn-trans-color;
+    }
+
+    &.mat-special,
+    &.mat-warn {
+        @extend %button-icon-disabled;
+        color: $btn-special-bgr;
+    }
+}
+
+// base style flat
+button[md-button],
+a[md-button] {
+    @extend %button;
+
+    &.mat-primary {
+        @extend %button-trans;
+        color: $btn-primary-bgr;
+    }
+
+    &.mat-secondary,
+    &.mat-accent {
+        @extend %button-trans;
+        color: $btn-trans-color;
+    }
+
+    &.mat-special,
+    &.mat-warn {
+        @extend %button-trans;
+        color: $btn-special-bgr;
+    }
+}
+
+// base style
+button[md-raised-button],
+a[md-raised-button] {
+    @extend %button;
+
+    &.mat-primary {
+        @extend %button-disable;
+        @include mix-shadow(1, null);
+        @include button-status($btn-primary-bgr, $btn-primary-color);
+        background-color: $btn-primary-bgr;
+        color: $btn-primary-color;
+
+    }
+
+    &.mat-secondary,
+    &.mat-accent {
+        @extend %button-disable;
+        @include mix-shadow(1, null);
+        @include button-status($btn-secondary-bgr, $btn-secondary-color);
+        background-color: $btn-secondary-bgr;
+        color: $btn-secondary-color;
+
+    }
+
+    &.mat-special,
+    &.mat-warn {
+        @extend %button-disable;
+        @include mix-shadow(1, null);
+        @include button-status($btn-special-bgr, $btn-special-color);
+        background-color: $btn-special-bgr;
+        color: $btn-special-color;
+    }
+}
